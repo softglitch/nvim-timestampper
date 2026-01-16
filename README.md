@@ -4,7 +4,7 @@ A Neovim plugin to easily convert various timestamp formats (Epoch, ISO 8601, Co
 
 ## Features
 
-- **Epoch Detection**: Automatically identifies 10-digit epoch timestamps (valid between ~2000 and ~2038) and converts them.
+- **Epoch Detection**: Automatically identifies 10-digit epoch timestamps (seconds) and 13-digit epoch timestamps (milliseconds).
 - **ISO 8601 Support**: Converts `YYYY-MM-DDTHH:MM:SS` format.
 - **Compact Format Support**: Converts `YYYYMMDD HH:MM:SS` format.
 - **Configurable**: Customize the output format and enable/disable specific detectors.
@@ -56,9 +56,10 @@ require('timestampper').setup({
 
   -- Enable or disable specific detectors
   detectors = {
-    epoch = true,   -- 10-digit timestamps
-    compact = true, -- YYYYMMDD HH:MM:SS
-    iso = true,     -- YYYY-MM-DDTHH:MM:SS
+    epoch = true,    -- 10-digit timestamps (seconds)
+    epoch_ms = true, -- 13-digit timestamps (milliseconds)
+    compact = true,  -- YYYYMMDD HH:MM:SS
+    iso = true,      -- YYYY-MM-DDTHH:MM:SS
   }
 })
 ```
